@@ -1,0 +1,8 @@
+{
+  "name": "smh-notification-microservice",
+  "buildpacks": [
+    {
+      "url": "heroku/java"
+    }
+  ]
+}
