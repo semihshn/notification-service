@@ -1,15 +1,11 @@
 package com.semihshn.notificationservice.adapter.rest.notification.response;
 
-import com.semihshn.notificationservice.adapter.jpa.notification.CardType;
 import com.semihshn.notificationservice.domain.notification.Notification;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import java.math.BigInteger;
 import java.time.LocalDate;
 
 @Getter

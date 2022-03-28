@@ -1,6 +1,5 @@
 package com.semihshn.notificationservice.domain.notification;
 
-import com.semihshn.notificationservice.adapter.jpa.notification.CardType;
 import com.semihshn.notificationservice.domain.port.NotificationPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,7 +7,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.math.BigInteger;
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
