@@ -10,6 +10,6 @@ FROM mcr.microsoft.com/java/jre:17-zulu-alpine
 WORKDIR /app
 COPY --from=compiler /usr/src/app/target/notification-service-0.0.1-SNAPSHOT.jar .
 
-ENTRYPOINT ["java", "-jar", "notification-service-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-jar", "notification-service-0.0.1-SNAPSHOT.jar"]
 
 EXPOSE 8888
