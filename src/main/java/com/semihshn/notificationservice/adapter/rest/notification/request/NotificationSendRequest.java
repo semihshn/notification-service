@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class NotificationCreateRequest {
+public class NotificationSendRequest {
 
     @NotNull
     private Long driverId;
@@ -28,7 +28,6 @@ public class NotificationCreateRequest {
 
     @NotNull
     private String message;
-
 
     public Notification convertToNotification() {
         return Notification.builder()
