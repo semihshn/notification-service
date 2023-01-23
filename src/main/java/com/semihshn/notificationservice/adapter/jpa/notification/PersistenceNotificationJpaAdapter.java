@@ -3,19 +3,26 @@ package com.semihshn.notificationservice.adapter.jpa.notification;
 import com.semihshn.notificationservice.adapter.jpa.common.Status;
 import com.semihshn.notificationservice.domain.exception.ExceptionType;
 import com.semihshn.notificationservice.domain.exception.SemDataNotFoundException;
+import com.semihshn.notificationservice.domain.notification.EmailNotification;
 import com.semihshn.notificationservice.domain.notification.Notification;
-import com.semihshn.notificationservice.domain.port.NotificationPort;
+import com.semihshn.notificationservice.domain.notification.SmsNotification;
+import com.semihshn.notificationservice.domain.port.PersistenceNotificationPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class NotificationJpaAdapter implements NotificationPort {
+public class PersistenceNotificationJpaAdapter implements PersistenceNotificationPort {
     private final NotificationJpaRepository notificationJpaRepository;
 
     @Override
-    public Notification create(Notification notification) {
-        return notificationJpaRepository.save(NotificationEntity.from(notification)).toModel();
+    public EmailNotification create(EmailNotification notification) {
+        return notificationJpaRepository.save(NotificationEntity.from(notification)).toEmailModel();
+    }
+
+    @Override
+    public SmsNotification create(SmsNotification notification) {
+        return notificationJpaRepository.save(NotificationEntity.from(notification)).toSmsModel();
     }
 
     @Override

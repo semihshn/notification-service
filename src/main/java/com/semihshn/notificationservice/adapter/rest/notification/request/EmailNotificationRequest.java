@@ -1,6 +1,6 @@
 package com.semihshn.notificationservice.adapter.rest.notification.request;
 
-import com.semihshn.notificationservice.domain.notification.Notification;
+import com.semihshn.notificationservice.domain.notification.EmailNotification;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class NotificationSendRequest {
+public class EmailNotificationRequest {
 
     @NotNull
     private Long driverId;
@@ -20,22 +20,21 @@ public class NotificationSendRequest {
     @NotNull
     private String lastName;
 
-
     private LocalDate birthDate;
 
     @NotNull
-    private String telephoneAddress;
+    private String mail;
 
     @NotNull
     private String message;
 
-    public Notification convertToNotification() {
-        return Notification.builder()
+    public EmailNotification convertToNotification() {
+        return EmailNotification.builder()
                 .driverId(driverId)
                 .firstName(firstName)
                 .lastName(lastName)
                 .birthDate(birthDate)
-                .telephoneAddress(telephoneAddress)
+                .mail(mail)
                 .message(message)
                 .build();
     }

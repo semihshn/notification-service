@@ -1,7 +1,8 @@
 package com.semihshn.notificationservice.domain.notification;
 
-import com.semihshn.notificationservice.domain.port.NotificationPort;
-import com.semihshn.notificationservice.domain.port.TwilioPort;
+import com.semihshn.notificationservice.domain.port.EmailPort;
+import com.semihshn.notificationservice.domain.port.PersistenceNotificationPort;
+import com.semihshn.notificationservice.domain.port.SmsPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,14 +20,17 @@ class NotificationServiceTest {
     NotificationService notificationService;
 
     @Mock
-    NotificationPort notificationPort;
+    PersistenceNotificationPort persistenceNotificationPort;
 
     @Mock
-    TwilioPort twilioPort;
+    SmsPort smsPort;
+
+    @Mock
+    EmailPort emailPort;
 
     @BeforeEach
     void setUp() {
-        notificationService = new NotificationService(notificationPort, twilioPort);
+        notificationService = new NotificationService(persistenceNotificationPort, smsPort, emailPort);
     }
 
     @Test
@@ -37,21 +41,21 @@ class NotificationServiceTest {
         String FROM = "1003";
         String MESSAGE = "message_test";
 
-        Notification notification = Notification.builder().build();
+        SmsNotification notification = SmsNotification.builder().build();
 
         //mock
-        Notification createdNotification = Notification.builder().id(3L).build();
-        when(notificationPort.create(any())).thenReturn(createdNotification);
+        SmsNotification createdNotification = SmsNotification.builder().id(3L).build();
+        when(persistenceNotificationPort.create(any(SmsNotification.class))).thenReturn(createdNotification);
 
-        TwilioResponse twilioResponse = TwilioResponse.builder()
+        SmsResponse smsResponse = SmsResponse.builder()
                 .accountSid(ACCOUNT_SID)
                 .to(TO)
                 .from(FROM)
                 .build();
-        when(twilioPort.sendSms(notification)).thenReturn(twilioResponse);
+        when(smsPort.send(notification)).thenReturn(smsResponse);
 
         //when
-        TwilioResponse createdMessage = notificationService.send(notification);
+        SmsResponse createdMessage = notificationService.send(notification);
 
         //then
         assertThat(createdMessage.getAccountSid()).isEqualTo(ACCOUNT_SID);

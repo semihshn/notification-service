@@ -8,14 +8,14 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TwilioResponse {
+public class SmsResponse {
     private String from;
     private String to;
     private String price;
     private String accountSid;
 
-    public static TwilioResponse from(Message message) {
-        return TwilioResponse.builder()
+    public static SmsResponse from(Message message) {
+        return SmsResponse.builder()
                 .from(message.getFrom().getEndpoint())
                 .to(message.getTo())
                 .price(message.getPrice())

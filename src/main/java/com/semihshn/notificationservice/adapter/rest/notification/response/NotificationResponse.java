@@ -19,6 +19,7 @@ public class NotificationResponse {
     private String lastName;
     private LocalDate birthDate;
     private String telephoneAddress;
+    private String mail;
     private String message;
 
     public static NotificationResponse from(Notification notification) {
@@ -29,6 +30,7 @@ public class NotificationResponse {
                 .lastName(notification.getLastName())
                 .birthDate(notification.getBirthDate())
                 .telephoneAddress(notification.getTelephoneAddress())
+                .mail(notification.getMail())
                 .message(notification.getMessage())
                 .build();
     }
