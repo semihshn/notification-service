@@ -9,14 +9,13 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Builder
-public class Notification {
+public class EmailNotification {
 
     private Long id;
     private Long driverId;
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
-    private String telephoneAddress;
     private String mail;
     private String message;
 }

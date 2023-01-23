@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Builder
-public class Notification {
+public class SmsNotification {
 
     private Long id;
     private Long driverId;
@@ -17,6 +17,5 @@ public class Notification {
     private String lastName;
     private LocalDate birthDate;
     private String telephoneAddress;
-    private String mail;
     private String message;
 }

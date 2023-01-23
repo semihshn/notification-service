@@ -1,11 +1,13 @@
 package com.semihshn.notificationservice.adapter.rest.notification;
 
-import com.semihshn.notificationservice.adapter.rest.notification.request.NotificationSendRequest;
-import com.semihshn.notificationservice.adapter.rest.notification.response.NotificationSendResponse;
+import com.semihshn.notificationservice.adapter.rest.notification.request.EmailNotificationRequest;
+import com.semihshn.notificationservice.adapter.rest.notification.request.SmsNotificationRequest;
+import com.semihshn.notificationservice.adapter.rest.notification.response.EmailNotificationResponse;
+import com.semihshn.notificationservice.adapter.rest.notification.response.SmsNotificationResponse;
 import com.semihshn.notificationservice.adapter.rest.notification.response.NotificationResponse;
+import com.semihshn.notificationservice.domain.notification.EmailResponse;
 import com.semihshn.notificationservice.domain.notification.NotificationService;
-import com.semihshn.notificationservice.domain.notification.TwilioResponse;
-import com.twilio.rest.api.v2010.account.Message;
+import com.semihshn.notificationservice.domain.notification.SmsResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,10 +20,16 @@ import javax.validation.Valid;
 public class NotificationController {
     private final NotificationService notificationService;
 
-    @PostMapping()
-    public NotificationSendResponse send(@RequestBody @Valid NotificationSendRequest request) {
-        TwilioResponse twilioResponse = notificationService.send(request.convertToNotification());
-        return NotificationSendResponse.from(twilioResponse);
+    @PostMapping("/sms")
+    public SmsNotificationResponse sendSms(@RequestBody @Valid SmsNotificationRequest request) {
+        SmsResponse smsResponse = notificationService.send(request.convertToNotification());
+        return SmsNotificationResponse.from(smsResponse);
+    }
+
+    @PostMapping("/email")
+    public EmailNotificationResponse sendEmail(@RequestBody @Valid EmailNotificationRequest request) {
+        EmailResponse emailResponse = notificationService.send(request.convertToNotification());
+        return EmailNotificationResponse.from(emailResponse);
     }
 
     @DeleteMapping("{notificationId}")
