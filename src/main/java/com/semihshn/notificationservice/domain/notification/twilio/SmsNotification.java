@@ -1,4 +1,4 @@
-package com.semihshn.notificationservice.domain.notification;
+package com.semihshn.notificationservice.domain.notification.twilio;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -9,13 +9,13 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Builder
-public class EmailNotification {
+public class SmsNotification {
 
     private Long id;
     private Long driverId;
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
-    private String mail;
+    private String telephoneAddress;
     private String message;
 }

@@ -1,4 +1,4 @@
-package com.semihshn.notificationservice.domain.notification;
+package com.semihshn.notificationservice.domain.notification.twilio;
 
 import com.twilio.rest.api.v2010.account.Message;
 import lombok.*;

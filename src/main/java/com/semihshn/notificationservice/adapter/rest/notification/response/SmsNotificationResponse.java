@@ -1,6 +1,6 @@
 package com.semihshn.notificationservice.adapter.rest.notification.response;
 
-import com.semihshn.notificationservice.domain.notification.SmsResponse;
+import com.semihshn.notificationservice.domain.notification.twilio.SmsResponse;
 import lombok.*;
 
 @Setter

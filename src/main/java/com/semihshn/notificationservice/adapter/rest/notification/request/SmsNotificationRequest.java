@@ -1,6 +1,6 @@
 package com.semihshn.notificationservice.adapter.rest.notification.request;
 
-import com.semihshn.notificationservice.domain.notification.SmsNotification;
+import com.semihshn.notificationservice.domain.notification.twilio.SmsNotification;
 import lombok.Getter;
 import lombok.Setter;
 

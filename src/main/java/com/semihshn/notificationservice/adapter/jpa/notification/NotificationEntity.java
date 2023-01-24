@@ -2,9 +2,9 @@ package com.semihshn.notificationservice.adapter.jpa.notification;
 
 import com.semihshn.notificationservice.adapter.jpa.common.BaseEntity;
 import com.semihshn.notificationservice.adapter.jpa.common.Status;
-import com.semihshn.notificationservice.domain.notification.EmailNotification;
+import com.semihshn.notificationservice.domain.notification.thymeleaf.EmailNotification;
 import com.semihshn.notificationservice.domain.notification.Notification;
-import com.semihshn.notificationservice.domain.notification.SmsNotification;
+import com.semihshn.notificationservice.domain.notification.twilio.SmsNotification;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.lang.Nullable;

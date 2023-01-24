@@ -2,6 +2,7 @@ package com.semihshn.notificationservice.adapter.jpa.common;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.Where;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -23,6 +24,10 @@ public class BaseEntity {
     @CreatedDate
     @Column(nullable = false)
     protected LocalDateTime createdDate;
+
+    @UpdateTimestamp
+    @Column(nullable = false)
+    protected LocalDateTime updatedDate;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

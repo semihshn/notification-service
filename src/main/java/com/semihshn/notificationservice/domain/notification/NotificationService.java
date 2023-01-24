@@ -1,5 +1,9 @@
 package com.semihshn.notificationservice.domain.notification;
 
+import com.semihshn.notificationservice.domain.notification.thymeleaf.EmailNotification;
+import com.semihshn.notificationservice.domain.notification.thymeleaf.EmailResponse;
+import com.semihshn.notificationservice.domain.notification.twilio.SmsNotification;
+import com.semihshn.notificationservice.domain.notification.twilio.SmsResponse;
 import com.semihshn.notificationservice.domain.port.EmailPort;
 import com.semihshn.notificationservice.domain.port.PersistenceNotificationPort;
 import com.semihshn.notificationservice.domain.port.SmsPort;
