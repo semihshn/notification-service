@@ -1,4 +1,4 @@
-package com.semihshn.notificationservice.domain.notification;
+package com.semihshn.notificationservice.domain.notification.thymeleaf;
 
 import lombok.*;
 

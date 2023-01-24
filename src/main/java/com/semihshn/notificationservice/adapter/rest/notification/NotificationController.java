@@ -5,9 +5,9 @@ import com.semihshn.notificationservice.adapter.rest.notification.request.SmsNot
 import com.semihshn.notificationservice.adapter.rest.notification.response.EmailNotificationResponse;
 import com.semihshn.notificationservice.adapter.rest.notification.response.SmsNotificationResponse;
 import com.semihshn.notificationservice.adapter.rest.notification.response.NotificationResponse;
-import com.semihshn.notificationservice.domain.notification.EmailResponse;
+import com.semihshn.notificationservice.domain.notification.thymeleaf.EmailResponse;
 import com.semihshn.notificationservice.domain.notification.NotificationService;
-import com.semihshn.notificationservice.domain.notification.SmsResponse;
+import com.semihshn.notificationservice.domain.notification.twilio.SmsResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

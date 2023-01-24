@@ -1,6 +1,6 @@
 package com.semihshn.notificationservice.adapter.rest.notification.response;
 
-import com.semihshn.notificationservice.domain.notification.EmailResponse;
+import com.semihshn.notificationservice.domain.notification.thymeleaf.EmailResponse;
 import lombok.*;
 
 @Setter

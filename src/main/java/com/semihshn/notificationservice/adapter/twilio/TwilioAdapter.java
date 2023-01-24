@@ -1,7 +1,7 @@
 package com.semihshn.notificationservice.adapter.twilio;
 
-import com.semihshn.notificationservice.domain.notification.SmsNotification;
-import com.semihshn.notificationservice.domain.notification.SmsResponse;
+import com.semihshn.notificationservice.domain.notification.twilio.SmsNotification;
+import com.semihshn.notificationservice.domain.notification.twilio.SmsResponse;
 import com.semihshn.notificationservice.domain.port.SmsPort;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class SmsAdapter implements SmsPort {
+public class TwilioAdapter implements SmsPort {
 
     private final TwilioProperties twilioProperties;
 
-    public SmsAdapter(TwilioProperties twilioProperties) {
+    public TwilioAdapter(TwilioProperties twilioProperties) {
         this.twilioProperties = twilioProperties;
     }
 
